@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyCast | Premium Weather App</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Weather Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Animated Background -->
+  <div class="background-animation"></div>
+
+  <!-- Floating Circles -->
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
+
+  <!-- Main App -->
+  <div class="container">
+
+    <div class="weather-card">
+
+      <!-- Logo -->
+      <div class="logo">
+        <i class="fa-solid fa-cloud-sun"></i>
+        <h1>SkyCast</h1>
+      </div>
+
+      <!-- Search Section -->
+      <div class="search-box">
+
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Search city..."
+        />
+
+        <button id="searchBtn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button id="locationBtn">
+          <i class="fa-solid fa-location-crosshairs"></i>
+        </button>
+
+      </div>
+
+      <!-- Loading -->
+      <div class="loading hidden">
+        <div class="loader"></div>
+        <p>Fetching weather...</p>
+      </div>
+
+      <!-- Error -->
+      <div class="error-message hidden">
+        <p>City not found. Try again.</p>
+      </div>
+
+      <!-- Weather Info -->
+      <div class="weather-content hidden">
+
+        <!-- Main Weather -->
+        <div class="main-weather">
+
+          <div class="weather-icon">
+            <img
+              id="weatherIcon"
+              src=""
+              alt="Weather Icon"
+            />
+          </div>
+
+          <h2 id="temperature">25°C</h2>
+
+          <h3 id="weatherCondition">Clear Sky</h3>
+
+          <p id="cityName">Jabalpur, IN</p>
+
+        </div>
+
+        <!-- Weather Details -->
+        <div class="weather-details">
+
+          <div class="detail-card">
+            <i class="fa-solid fa-droplet"></i>
+            <div>
+              <span>Humidity</span>
+              <h4 id="humidity">60%</h4>
+            </div>
+          </div>
+
+          <div class="detail-card">
+            <i class="fa-solid fa-wind"></i>
+            <div>
+              <span>Wind</span>
+              <h4 id="windSpeed">10 km/h</h4>
+            </div>
+          </div>
+
+          <div class="detail-card">
+            <i class="fa-solid fa-temperature-half"></i>
+            <div>
+              <span>Feels Like</span>
+              <h4 id="feelsLike">28°C</h4>
+            </div>
+          </div>
+
+          <div class="detail-card">
+            <i class="fa-solid fa-eye"></i>
+            <div>
+              <span>Visibility</span>
+              <h4 id="visibility">5 km</h4>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
