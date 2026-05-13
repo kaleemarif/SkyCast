@@ -3,33 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkyCast | Premium Weather App</title>
-
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Weather Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
+  <title>SkyCast</title>
 
   <link rel="stylesheet" href="style.css" />
-</head>
 
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
 <body>
 
-  <!-- Animated Background -->
-  <div class="background-animation"></div>
+  <!-- Weather Effects -->
+  <div class="weather-effects"></div>
 
-  <!-- Floating Circles -->
-  <div class="circle circle1"></div>
-  <div class="circle circle2"></div>
-  <div class="circle circle3"></div>
-
-  <!-- Main App -->
   <div class="container">
 
     <div class="weather-card">
@@ -40,9 +27,8 @@
         <h1>SkyCast</h1>
       </div>
 
-      <!-- Search Section -->
+      <!-- Search -->
       <div class="search-box">
-
         <input
           type="text"
           id="cityInput"
@@ -56,78 +42,65 @@
         <button id="locationBtn">
           <i class="fa-solid fa-location-crosshairs"></i>
         </button>
-
       </div>
 
-      <!-- Loading -->
-      <div class="loading hidden">
-        <div class="loader"></div>
-        <p>Fetching weather...</p>
+      <!-- Weather Icon -->
+      <div class="weather-icon">
+        <img id="weatherIcon" src="" alt="Weather Icon" />
       </div>
 
-      <!-- Error -->
-      <div class="error-message hidden">
-        <p>City not found. Try again.</p>
-      </div>
+      <!-- Temperature -->
+      <h1 id="temperature">--°C</h1>
 
-      <!-- Weather Info -->
-      <div class="weather-content hidden">
+      <!-- Condition -->
+      <h2 id="weatherCondition">Weather</h2>
 
-        <!-- Main Weather -->
-        <div class="main-weather">
+      <!-- City -->
+      <p id="cityName">Search a city</p>
 
-          <div class="weather-icon">
-            <img
-              id="weatherIcon"
-              src=""
-              alt="Weather Icon"
-            />
+      <!-- Weather Details -->
+      <div class="weather-details">
+
+        <div class="detail-card">
+          <i class="fa-solid fa-droplet"></i>
+          <div>
+            <span>Humidity</span>
+            <h4 id="humidity">--%</h4>
           </div>
-
-          <h2 id="temperature">25°C</h2>
-
-          <h3 id="weatherCondition">Clear Sky</h3>
-
-          <p id="cityName">Jabalpur, IN</p>
-
         </div>
 
-        <!-- Weather Details -->
-        <div class="weather-details">
-
-          <div class="detail-card">
-            <i class="fa-solid fa-droplet"></i>
-            <div>
-              <span>Humidity</span>
-              <h4 id="humidity">60%</h4>
-            </div>
+        <div class="detail-card">
+          <i class="fa-solid fa-wind"></i>
+          <div>
+            <span>Wind</span>
+            <h4 id="wind">-- km/h</h4>
           </div>
-
-          <div class="detail-card">
-            <i class="fa-solid fa-wind"></i>
-            <div>
-              <span>Wind</span>
-              <h4 id="windSpeed">10 km/h</h4>
-            </div>
-          </div>
-
-          <div class="detail-card">
-            <i class="fa-solid fa-temperature-half"></i>
-            <div>
-              <span>Feels Like</span>
-              <h4 id="feelsLike">28°C</h4>
-            </div>
-          </div>
-
-          <div class="detail-card">
-            <i class="fa-solid fa-eye"></i>
-            <div>
-              <span>Visibility</span>
-              <h4 id="visibility">5 km</h4>
-            </div>
-          </div>
-
         </div>
+
+        <div class="detail-card">
+          <i class="fa-solid fa-temperature-half"></i>
+          <div>
+            <span>Feels Like</span>
+            <h4 id="feelsLike">--°C</h4>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <i class="fa-solid fa-eye"></i>
+          <div>
+            <span>Visibility</span>
+            <h4 id="visibility">-- km</h4>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Forecast -->
+      <div class="forecast-section">
+
+        <h3>5-Day Forecast</h3>
+
+        <div class="forecast-container" id="forecastContainer"></div>
 
       </div>
 
@@ -136,6 +109,5 @@
   </div>
 
   <script src="script.js"></script>
-
 </body>
 </html>
