@@ -143,7 +143,7 @@ async function getForecast(city) {
   }
 }
 
-function displayForecast(data) {
+function displayForecast(data){
 
   const forecastContainer =
     document.getElementById("forecastContainer");
