@@ -190,7 +190,55 @@ function displayForecast(data) {
     forecastContainer.innerHTML += card;
   });
 }
+/* =========================
+   HOURLY FORECAST
+========================= */
 
+function displayHourlyForecast(data){
+
+  const hourlyContainer =
+    document.getElementById("hourlyContainer");
+
+  hourlyContainer.innerHTML = "";
+
+  data.list.slice(0,8).forEach(hour => {
+
+    const time = new Date(hour.dt_txt)
+      .toLocaleTimeString([],{
+        hour:"2-digit",
+        minute:"2-digit"
+      });
+
+    const icon =
+      `https://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`;
+
+    const card = `
+      <div class="hour-card">
+
+        <div class="hour-time">
+          ${time}
+        </div>
+
+        <div class="hour-icon">
+          <img src="${icon}">
+        </div>
+
+        <div class="hour-temp">
+          ${Math.round(hour.main.temp)}°C
+        </div>
+
+        <div class="hour-condition">
+          ${hour.weather[0].main}
+        </div>
+
+      </div>
+    `;
+
+    hourlyContainer.innerHTML += card;
+
+  });
+
+}
 /* Background Effects */
 
 function updateBackground(weather) {
