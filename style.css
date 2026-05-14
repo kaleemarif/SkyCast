@@ -97,6 +97,22 @@ body{
 }
 
 /* =========================
+   LOGO TEXT
+========================= */
+
+.logo-text{
+  display:flex;
+  flex-direction:column;
+}
+
+.logo-text span{
+  font-size:12px;
+  letter-spacing:1px;
+  opacity:0.75;
+  margin-top:-8px;
+}
+
+/* =========================
    SEARCH BOX
 ========================= */
 
