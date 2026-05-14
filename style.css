@@ -466,3 +466,49 @@ body {
   font-size:18px;
   opacity:0.9;
 }
+/* =========================
+   FAVORITES
+========================= */
+
+.favorites-section{
+  margin-top:30px;
+}
+
+.favorites-section h2{
+  margin-bottom:18px;
+  color:white;
+}
+
+.favorites-container{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.favorite-city{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  padding:12px 18px;
+  border-radius:14px;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.favorite-city:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,0.15);
+}
+
+#saveCityBtn{
+  width:55px;
+  height:55px;
+  border:none;
+  border-radius:18px;
+  background:rgba(255,255,255,0.1);
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+}
