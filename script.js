@@ -138,6 +138,8 @@ async function getForecast(city) {
 
     displayForecast(data);
 
+    displayHourlyForecast(data);
+
   } catch (error) {
     console.log(error);
   }
