@@ -115,6 +115,8 @@ function displayWeather(data) {
 
   document.getElementById("visibility").innerText =
     `${data.visibility / 1000} km`;
+  
+  getAQI(data.coord.lat, data.coord.lon);
 
   const icon =
     `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
