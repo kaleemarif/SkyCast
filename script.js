@@ -118,6 +118,10 @@ function displayWeather(data) {
   
   getAQI(data.coord.lat, data.coord.lon);
 
+  updateWeatherEffects(
+  data.weather[0].main.toLowerCase()
+);
+
   updateWeatherMap(
   data.coord.lat,
   data.coord.lon
@@ -486,4 +490,84 @@ function createSunGlow() {
 
 /* Default Weather */
 
-getWeatherByCity("London");
+getWeatherByCity("Jabalpur");
+
+/* =========================
+   WEATHER EFFECTS
+========================= */
+
+function updateWeatherEffects(condition){
+
+  const effects =
+    document.getElementById("weatherEffects");
+
+  effects.innerHTML = "";
+
+  /* RAIN */
+
+  if(condition.includes("rain")){
+
+    for(let i=0; i<80; i++){
+
+      const drop =
+        document.createElement("div");
+
+      drop.classList.add("rain-drop");
+
+      drop.style.left =
+        Math.random() * 100 + "%";
+
+      drop.style.animationDuration =
+        (0.5 + Math.random()) + "s";
+
+      drop.style.opacity =
+        Math.random();
+
+      effects.appendChild(drop);
+
+    }
+
+  }
+
+  /* SNOW */
+
+  else if(condition.includes("snow")){
+
+    for(let i=0; i<50; i++){
+
+      const snow =
+        document.createElement("div");
+
+      snow.classList.add("snowflake");
+
+      snow.innerHTML = "❄";
+
+      snow.style.left =
+        Math.random() * 100 + "%";
+
+      snow.style.animationDuration =
+        (3 + Math.random() * 5) + "s";
+
+      snow.style.opacity =
+        Math.random();
+
+      effects.appendChild(snow);
+
+    }
+
+  }
+
+  /* CLEAR */
+
+  else if(condition.includes("clear")){
+
+    const glow =
+      document.createElement("div");
+
+    glow.classList.add("sun-glow");
+
+    effects.appendChild(glow);
+
+  }
+
+}
