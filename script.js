@@ -118,6 +118,11 @@ function displayWeather(data) {
   
   getAQI(data.coord.lat, data.coord.lon);
 
+  updateWeatherMap(
+  data.coord.lat,
+  data.coord.lon
+);
+
   const icon =
     `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
 
