@@ -626,3 +626,95 @@ body{
   height:100%;
   border:none;
 }
+/* =========================
+   WEATHER EFFECTS
+========================= */
+
+.weather-effects{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:-1;
+}
+
+/* RAIN */
+
+.rain-drop{
+  position:absolute;
+  width:2px;
+  height:80px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(255,255,255,0.7)
+    );
+
+  animation:rainFall linear infinite;
+}
+
+@keyframes rainFall{
+
+  from{
+    transform:
+      translateY(-100px);
+  }
+
+  to{
+    transform:
+      translateY(100vh);
+  }
+
+}
+
+/* SNOW */
+
+.snowflake{
+  position:absolute;
+  color:white;
+  font-size:16px;
+  animation:snowFall linear infinite;
+}
+
+@keyframes snowFall{
+
+  from{
+    transform:
+      translateY(-50px);
+  }
+
+  to{
+    transform:
+      translateY(100vh);
+  }
+
+}
+
+/* SUNNY GLOW */
+
+.sun-glow{
+  position:absolute;
+
+  top:50%;
+  left:50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  width:350px;
+  height:350px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      rgba(255,200,0,0.35),
+      transparent
+    );
+
+  filter:blur(40px);
+}
