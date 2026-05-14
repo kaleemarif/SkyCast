@@ -241,6 +241,72 @@ function displayHourlyForecast(data){
   });
 
 }
+/* =========================
+   AQI SYSTEM
+========================= */
+
+async function getAQI(lat, lon){
+
+  try{
+
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`
+    );
+
+    const data = await response.json();
+
+    displayAQI(data);
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
+}
+
+function displayAQI(data){
+
+  const aqi =
+    data.list[0].main.aqi;
+
+  const aqiValue =
+    document.getElementById("aqiValue");
+
+  const aqiStatus =
+    document.getElementById("aqiStatus");
+
+  let status = "";
+
+  switch(aqi){
+
+    case 1:
+      status = "Good 🟢";
+      break;
+
+    case 2:
+      status = "Fair 🟡";
+      break;
+
+    case 3:
+      status = "Moderate 🟠";
+      break;
+
+    case 4:
+      status = "Poor 🔴";
+      break;
+
+    case 5:
+      status = "Very Poor ⚫";
+      break;
+
+  }
+
+  aqiValue.innerHTML = aqi;
+
+  aqiStatus.innerHTML = status;
+
+}
 /* Background Effects */
 
 function updateBackground(weather) {
