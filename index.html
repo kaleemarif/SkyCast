@@ -12,16 +12,11 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />
 </head>
+
 <body>
 
   <!-- Weather Effects -->
-  <body>
-
-  <!-- Weather Effects -->
-  <div
-    class="weather-effects"
-    id="weatherEffects">
-  </div>
+  <div class="weather-effects" id="weatherEffects"></div>
 
   <div class="container">
 
@@ -30,19 +25,16 @@
       <!-- Logo -->
       <div class="logo">
         <i class="fa-solid fa-cloud-sun"></i>
+
         <div class="logo-text">
-
-  <h1>SkyCast</h1>
-
-  <span>
-    developed by Kaleem Arif
-  </span>
-
+          <h1>SkyCast</h1>
+          <span>developed by Kaleem Arif</span>
         </div>
       </div>
 
-      <!-- Search -->
+      <!-- Search Box -->
       <div class="search-box">
+
         <input
           type="text"
           id="cityInput"
@@ -50,15 +42,17 @@
         />
 
         <button id="searchBtn">
-          <button id="saveCityBtn">
-  <i class="fa-solid fa-star"></i>
-          </button>
           <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button id="saveCityBtn">
+          <i class="fa-solid fa-star"></i>
         </button>
 
         <button id="locationBtn">
           <i class="fa-solid fa-location-crosshairs"></i>
         </button>
+
       </div>
 
       <!-- Weather Icon -->
@@ -114,72 +108,46 @@
 
       <!-- Forecast -->
       <div class="forecast-section">
-
         <h3>5-Day Forecast</h3>
-
         <div class="forecast-container" id="forecastContainer"></div>
-
       </div>
+
       <!-- Hourly Forecast -->
+      <section class="hourly-section">
+        <h2>Hourly Forecast</h2>
+        <div class="hourly-container" id="hourlyContainer"></div>
+      </section>
 
-<section class="hourly-section">
+      <!-- AQI -->
+      <section class="aqi-section">
+        <h2>Air Quality Index</h2>
 
-  <h2>Hourly Forecast</h2>
+        <div class="aqi-card">
+          <div class="aqi-value" id="aqiValue">--</div>
+          <div class="aqi-status" id="aqiStatus">Unknown</div>
+        </div>
+      </section>
 
-  <div class="hourly-container" id="hourlyContainer">
+      <!-- Favorites -->
+      <section class="favorites-section">
+        <h2>Favorite Cities</h2>
+        <div class="favorites-container" id="favoritesContainer"></div>
+      </section>
 
-  </div>
+      <!-- Weather Map -->
+      <section class="map-section">
+        <h2>Weather Map</h2>
 
-</section>
-  <!-- AQI Section -->
+        <div class="map-container">
+          <iframe
+            id="weatherMap"
+            src=""
+            loading="lazy">
+          </iframe>
+        </div>
+      </section>
 
-<section class="aqi-section">
-
-  <h2>Air Quality Index</h2>
-
-  <div class="aqi-card">
-
-    <div class="aqi-value" id="aqiValue">
-      --
     </div>
-
-    <div class="aqi-status" id="aqiStatus">
-      Unknown
-    </div>
-
-  </div>
-
-</section>
-      <!-- Favorite Cities -->
-
-<section class="favorites-section">
-
-  <h2>Favorite Cities</h2>
-
-  <div class="favorites-container" id="favoritesContainer">
-
-  </div>
-
-</section>
-      <!-- WEATHER MAP -->
-
-<section class="map-section">
-
-  <h2>Weather Map</h2>
-
-  <div class="map-container">
-
-    <iframe
-      id="weatherMap"
-      src=""
-      loading="lazy">
-    </iframe>
-
-  </div>
-
-</section>
-    </div>
-
   </div>
 
   <script src="script.js"></script>
