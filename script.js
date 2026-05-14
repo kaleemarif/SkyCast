@@ -309,6 +309,69 @@ function displayAQI(data){
   aqiStatus.innerHTML = status;
 
 }
+/* =========================
+   FAVORITE CITIES
+========================= */
+
+const saveCityBtn =
+  document.getElementById("saveCityBtn");
+
+let favorites = JSON.parse(
+  localStorage.getItem("favorites")
+) || [];
+
+saveCityBtn.addEventListener("click", () => {
+
+  const city =
+    cityInput.value.trim();
+
+  if(city && !favorites.includes(city)){
+
+    favorites.push(city);
+
+    localStorage.setItem(
+      "favorites",
+      JSON.stringify(favorites)
+    );
+
+    renderFavorites();
+
+  }
+
+});
+
+function renderFavorites(){
+
+  const favoritesContainer =
+    document.getElementById("favoritesContainer");
+
+  favoritesContainer.innerHTML = "";
+
+  favorites.forEach(city => {
+
+    const cityCard =
+      document.createElement("div");
+
+    cityCard.className =
+      "favorite-city";
+
+    cityCard.innerText = city;
+
+    cityCard.addEventListener("click", () => {
+
+      getWeather(city);
+
+      getForecast(city);
+
+    });
+
+    favoritesContainer.appendChild(cityCard);
+
+  });
+
+}
+
+renderFavorites();
 /* Background Effects */
 
 function updateBackground(weather) {
