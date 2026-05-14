@@ -310,6 +310,18 @@ function displayAQI(data){
 
 }
 /* =========================
+   WEATHER MAP
+========================= */
+
+function updateWeatherMap(lat, lon){
+
+  const map =
+    document.getElementById("weatherMap");
+
+  map.src =
+    `https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=${lat}&lon=${lon}&zoom=6`;
+}
+/* =========================
    FAVORITE CITIES
 ========================= */
 
