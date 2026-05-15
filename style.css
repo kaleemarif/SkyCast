@@ -734,3 +734,6 @@ body{
 
   filter:blur(40px);
 }
+#voiceBtn{
+  cursor:pointer;
+}
