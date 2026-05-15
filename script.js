@@ -571,3 +571,69 @@ function updateWeatherEffects(condition){
   }
 
 }
+/* =========================
+   VOICE SEARCH
+========================= */
+
+const voiceBtn =
+  document.getElementById("voiceBtn");
+
+const SpeechRecognition =
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+if(SpeechRecognition){
+
+  const recognition =
+    new SpeechRecognition();
+
+  recognition.lang = "en-US";
+
+  recognition.continuous = false;
+
+  recognition.interimResults = false;
+
+  /* START VOICE */
+
+  voiceBtn.addEventListener(
+    "click",
+    () => {
+
+      recognition.start();
+
+      voiceBtn.innerHTML =
+        `<i class="fa-solid fa-wave-square"></i>`;
+
+    }
+  );
+
+  /* RESULT */
+
+  recognition.addEventListener(
+    "result",
+    (e) => {
+
+      const city =
+        e.results[0][0].transcript;
+
+      cityInput.value = city;
+
+      getWeather(city);
+      getForecast(city);
+
+    }
+  );
+
+  /* END */
+
+  recognition.addEventListener(
+    "end",
+    () => {
+
+      voiceBtn.innerHTML =
+        `<i class="fa-solid fa-microphone"></i>`;
+
+    }
+  );
+
+}
