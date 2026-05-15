@@ -81,19 +81,14 @@ body{
 
 .logo{
   display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:28px;
+  justify-content:center;
+  margin-bottom:25px;
 }
 
-.logo i{
-  font-size:50px;
-  color:#ffd43b;
-}
-
-.logo h1{
-  font-size:52px;
-  font-weight:700;
+.logo-img{
+  width:320px;
+  max-width:100%;
+  object-fit:contain;
 }
 
 /* =========================
