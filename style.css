@@ -79,16 +79,30 @@ body{
    LOGO
 ========================= */
 
-.logo{
-  display:flex;
-  justify-content:center;
-  margin-bottom:25px;
+.logo-wrapper{
+  position: relative;
+  margin-bottom: 25px;
 }
 
-.logo-img{
-  width:320px;
-  max-width:100%;
-  object-fit:contain;
+.main-logo{
+  width: 100%;
+  max-width: 520px;
+  display: block;
+}
+
+/* Developed By Text */
+
+.developer-text{
+  position: absolute;
+  right: 10px;
+  bottom: -8px;
+
+  font-size: 11px;
+  letter-spacing: 1px;
+
+  color: rgba(255,255,255,0.75);
+
+  font-weight: 500;
 }
 
 /* =========================
