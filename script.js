@@ -637,3 +637,114 @@ if(SpeechRecognition){
   );
 
 }
+
+function clearEffects(){
+
+  document.getElementById(
+    "weather-effects"
+  ).innerHTML = "";
+
+}
+
+function createRain(){
+
+  const container =
+    document.getElementById(
+      "weather-effects"
+    );
+
+  for(let i=0;i<120;i++){
+
+    const drop =
+      document.createElement("div");
+
+    drop.className = "raindrop";
+
+    drop.style.left =
+      Math.random()*100 + "vw";
+
+    drop.style.animationDuration =
+      Math.random()*0.5 + 0.5 + "s";
+
+    container.appendChild(drop);
+
+  }
+
+}
+
+function createSnow(){
+
+  const container =
+    document.getElementById(
+      "weather-effects"
+    );
+
+  for(let i=0;i<60;i++){
+
+    const snow =
+      document.createElement("div");
+
+    snow.className = "snowflake";
+
+    snow.innerHTML = "❄";
+
+    snow.style.left =
+      Math.random()*100 + "vw";
+
+    snow.style.fontSize =
+      Math.random()*15 + 10 + "px";
+
+    snow.style.animationDuration =
+      Math.random()*5 + 5 + "s";
+
+    container.appendChild(snow);
+
+  }
+
+}
+
+function createClouds(){
+
+  const container =
+    document.getElementById(
+      "weather-effects"
+    );
+
+  for(let i=0;i<5;i++){
+
+    const cloud =
+      document.createElement("div");
+
+    cloud.className = "cloud";
+
+    cloud.style.top =
+      Math.random()*50 + "vh";
+
+    container.appendChild(cloud);
+
+  }
+
+}
+
+function applyWeatherEffects(weather){
+
+  clearEffects();
+
+  switch(weather){
+
+    case "Rain":
+    case "Drizzle":
+      createRain();
+      break;
+
+    case "Snow":
+      createSnow();
+      break;
+
+    case "Clouds":
+      createClouds();
+      break;
+
+  }
+
+}
