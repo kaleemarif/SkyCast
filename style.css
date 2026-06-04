@@ -109,21 +109,22 @@ body{
 ========================= */
 
 .search-box{
-  display:flex;
-  align-items:center;
-  gap:10px;
   width:100%;
   margin-bottom:30px;
 }
 
-.search-box input{
+.search-row{
+  display:flex;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.search-row input{
   flex:1;
-  min-width:0;
 
   height:55px;
 
   border:none;
-
   outline:none;
 
   border-radius:18px;
@@ -137,17 +138,13 @@ body{
   font-size:16px;
 }
 
-.search-box input::placeholder{
+.search-row input::placeholder{
   color:rgba(255,255,255,0.7);
 }
 
-.search-box button,
-#saveCityBtn{
-
+.search-row button{
   width:55px;
   height:55px;
-
-  flex-shrink:0;
 
   border:none;
 
@@ -170,8 +167,45 @@ body{
   align-items:center;
 }
 
-.search-box button:hover,
-#saveCityBtn:hover{
+.search-row button:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,0.18);
+}
+
+.action-row{
+  display:flex;
+  gap:12px;
+}
+
+.action-row button{
+  flex:1;
+
+  height:55px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:rgba(255,255,255,0.10);
+
+  color:white;
+
+  font-size:15px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  backdrop-filter:blur(10px);
+
+  transition:0.3s;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+}
+
+.action-row button:hover{
   transform:translateY(-3px);
   background:rgba(255,255,255,0.18);
 }
