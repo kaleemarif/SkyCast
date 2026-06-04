@@ -264,7 +264,7 @@ body{
   grid-template-columns:
     repeat(2,1fr);
 
-  gap:18px;
+  gap:20px;
 }
 
 .detail-card{
@@ -276,29 +276,41 @@ body{
 
   border-radius:22px;
 
-  padding:22px;
+  padding:24px;
 
   display:flex;
 
   align-items:center;
 
-  gap:15px;
+  gap:18px;
+
+  transition:0.3s ease;
+}
+
+.detail-card:hover{
+  transform:translateY(-3px);
+
+  background:rgba(255,255,255,0.12);
 }
 
 .detail-card i{
-  font-size:34px;
+  font-size:30px;
+
   color:#93c5fd;
 }
 
 .detail-card span{
-  font-size:15px;
+  font-size:14px;
+
   opacity:0.8;
 }
 
 .detail-card h4{
-  font-size:32px;
-  margin-top:4px;
+  font-size:26px;
+
+  margin-top:6px;
 }
+
 
 /* =========================
    5-Day Forecast
