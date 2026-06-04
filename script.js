@@ -256,9 +256,9 @@ function displayHourlyForecast(data){
    AQI SYSTEM
 ========================= */
 
-async function getAQI(lat, lon){
+async function getAQI(lat, lon) {
 
-  try{
+  try {
 
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`
@@ -268,54 +268,77 @@ async function getAQI(lat, lon){
 
     displayAQI(data);
 
-  }catch(error){
+  } catch (error) {
 
-    console.log(error);
+    console.log("AQI Error:", error);
 
   }
 
 }
 
-function displayAQI(data){
+function calculateAQI(pm25) {
 
-  const aqi =
-    data.list[0].main.aqi;
+  if (pm25 <= 12)
+    return Math.round((50 / 12) * pm25);
 
-  const aqiValue =
-    document.getElementById("aqiValue");
+  if (pm25 <= 35.4)
+    return Math.round(
+      ((100 - 51) / (35.4 - 12.1)) *
+      (pm25 - 12.1) + 51
+    );
 
-  const aqiStatus =
-    document.getElementById("aqiStatus");
+  if (pm25 <= 55.4)
+    return Math.round(
+      ((150 - 101) / (55.4 - 35.5)) *
+      (pm25 - 35.5) + 101
+    );
+
+  if (pm25 <= 150.4)
+    return Math.round(
+      ((200 - 151) / (150.4 - 55.5)) *
+      (pm25 - 55.5) + 151
+    );
+
+  if (pm25 <= 250.4)
+    return Math.round(
+      ((300 - 201) / (250.4 - 150.5)) *
+      (pm25 - 150.5) + 201
+    );
+
+  return Math.round(
+    ((500 - 301) / (500.4 - 250.5)) *
+    (pm25 - 250.5) + 301
+  );
+
+}
+
+function displayAQI(data) {
+
+  const pm25 = data.list[0].components.pm2_5;
+
+  const realAQI = calculateAQI(pm25);
+
+  const aqiValue = document.getElementById("aqiValue");
+  const aqiStatus = document.getElementById("aqiStatus");
 
   let status = "";
 
-  switch(aqi){
-
-    case 1:
-      status = "Good 🟢";
-      break;
-
-    case 2:
-      status = "Fair 🟡";
-      break;
-
-    case 3:
-      status = "Moderate 🟠";
-      break;
-
-    case 4:
-      status = "Poor 🔴";
-      break;
-
-    case 5:
-      status = "Very Poor ⚫";
-      break;
-
+  if (realAQI <= 50) {
+    status = "Good 🟢";
+  } else if (realAQI <= 100) {
+    status = "Moderate 🟡";
+  } else if (realAQI <= 150) {
+    status = "Unhealthy for Sensitive Groups 🟠";
+  } else if (realAQI <= 200) {
+    status = "Unhealthy 🔴";
+  } else if (realAQI <= 300) {
+    status = "Very Unhealthy 🟣";
+  } else {
+    status = "Hazardous ⚫";
   }
 
-  aqiValue.innerHTML = aqi;
-
-  aqiStatus.innerHTML = status;
+  aqiValue.textContent = realAQI;
+  aqiStatus.textContent = status;
 
 }
 /* =========================
